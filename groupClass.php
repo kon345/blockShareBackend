@@ -21,7 +21,7 @@ class groupPdo
 
     function createGroup($groupName, $category, $creatorID, $groupCode)
     {
-        $sql = "INSERT INTO groups (groupName, creatorID, category, memberCount, groupCode) VALUES (:groupName, :creatorID, :category, :memberCount, :groupCode)";
+        $sql = "INSERT INTO `groups` (groupName, creatorID, category, memberCount, groupCode) VALUES (:groupName, :creatorID, :category, :memberCount, :groupCode)";
         $pdoStmt = $this->pdo->prepare($sql);
         $pdoStmt->bindValue(':groupName', $groupName);
         $pdoStmt->bindValue(':creatorID', $creatorID);
@@ -33,7 +33,7 @@ class groupPdo
 
     function getGroupIDbyCode($groupCode)
     {
-        $sql = "SELECT groupID from groups WHERE groupCode = :groupCode";
+        $sql = "SELECT groupID from `groups` WHERE groupCode = :groupCode";
         $pdoStmt = $this->pdo->prepare($sql);
         $pdoStmt->bindValue(':groupCode', $groupCode);
         $pdoStmt->execute();
@@ -57,7 +57,7 @@ class groupPdo
 
     function getGroupListbyUserID($userID)
     {
-        $sql = "SELECT * from groups g JOIN group_users gp ON g.groupID = gp.groupID WHERE gp.userID = :userID";
+        $sql = "SELECT * from `groups` g JOIN group_users gp ON g.groupID = gp.groupID WHERE gp.userID = :userID";
         $pdoStmt = $this->pdo->prepare($sql);
         $pdoStmt->bindValue(':userID', $userID);
         $pdoStmt->execute();
@@ -83,7 +83,7 @@ class groupPdo
 
     function checkGroupCodeDuplicate($groupCode)
     {
-        $sql = "SELECT COUNT(*) FROM groups WHERE groupCode = :groupCode";
+        $sql = "SELECT COUNT(*) FROM `groups` WHERE groupCode = :groupCode";
         $pdoStmt = $this->pdo->prepare($sql);
         $pdoStmt->bindValue(':groupCode', $groupCode);
         $pdoStmt->execute();
@@ -96,7 +96,7 @@ class groupPdo
 
     function addGroupCodeMemberCount($groupID)
     {
-        $sql = "UPDATE groups SET memberCount = memberCount + 1 WHERE groupID = :groupID";
+        $sql = "UPDATE `groups` SET memberCount = memberCount + 1 WHERE groupID = :groupID";
         $pdoStmt = $this->pdo->prepare($sql);
         $pdoStmt->bindValue(':groupID', $groupID);
         $pdoStmt->execute();
