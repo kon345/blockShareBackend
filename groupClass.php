@@ -9,7 +9,7 @@ class groupPdo
     {
         $this->pdo = new PDO(
             "mysql:host=localhost; dbname=blockShareData; charset=utf8",
-            "root",
+            "kon345",
             "b10304005",
             array(
                 PDO::ATTR_EMULATE_PREPARES => false,
