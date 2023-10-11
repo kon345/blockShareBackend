@@ -8,7 +8,7 @@ class userPdo
     function __construct()
     {
         $this->pdo = new PDO(
-            "mysql:host=localhost; port=8888; dbname=blockShareData; charset=utf8",
+            "mysql:host=localhost; dbname=blockShareData; charset=utf8",
             "root",
             "b10304005",
             array(
