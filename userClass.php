@@ -9,8 +9,8 @@ class userPdo
     {
         $this->pdo = new PDO(
             "mysql:host=localhost; dbname=blockShareData; charset=utf8",
-            "kon345",
-            "b10304005",
+            "blockshare'@'localhost",
+            "mango0975175324",
             array(
                 PDO::ATTR_EMULATE_PREPARES => false,
                 PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
